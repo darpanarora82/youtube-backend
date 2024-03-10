@@ -7,6 +7,7 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectResult;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class S3UploadDownloadService {
 
     public static final String YOUTUBE_CLONE_BACKENDSPRING = "youtube-clone-backendspring";
+    @Autowired
     private AmazonS3Client amazonS3Client;
 
     public String uploadFile(MultipartFile multipartFile) {
