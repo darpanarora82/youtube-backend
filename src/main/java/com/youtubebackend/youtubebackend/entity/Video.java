@@ -32,9 +32,5 @@ public class Video {
     private List<Comment> comments;
 }
 
-enum VideoStatus{
-PUBLIC, PRIVATE, UNLISTED;
-}
-
 
 
