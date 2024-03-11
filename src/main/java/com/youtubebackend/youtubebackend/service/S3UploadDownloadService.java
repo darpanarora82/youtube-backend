@@ -1,15 +1,10 @@
 package com.youtubebackend.youtubebackend.service;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
 import com.youtubebackend.youtubebackend.config.AwsS3Configuration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,9 +19,11 @@ public class S3UploadDownloadService {
     public static final String bucketName = "video-0-0";
 
     public String uploadFile(MultipartFile multipartFile) throws IOException {
+
         //File name For Multipart File
         var fileName = multipartFile.getOriginalFilename();
 
+        //For Object Data to e added in putObject in AWS
         var objectMetadata = new ObjectMetadata();
 
         objectMetadata.setContentLength(multipartFile.getSize());
