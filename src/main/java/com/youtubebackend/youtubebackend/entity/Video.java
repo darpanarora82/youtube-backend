@@ -20,8 +20,10 @@ public class Video {
     private String description;
     private String title;
     private String userId;
+
     private Long likes;
     private Long dislikes;
+
     private List<String> tags;
     private String url;
     private VideoStatus videoStatus;
